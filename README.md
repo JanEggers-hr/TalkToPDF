@@ -6,6 +6,7 @@ GPT-3.5 bzw. GPT-4 liest für Dich (PDF)-Texte und beantwortet deine Fragen zum 
 ## Was man braucht
 - Ein Google-Konto (um das Notebook in Colab auszuführen); ersatzweise eine lokale juPyter-Installation
 - Ein gültiges Token für die OpenAI-API
+- Ein paar Cent über die Kreditkarte
 - Ein nicht zu langes PDF, das Text enthält (wenn das PDF nur Fotos des Textes enthält, wird der Text nicht verarbeitet)
 
 ## Wie man es nutzt
@@ -18,6 +19,10 @@ GPT-3.5 bzw. GPT-4 liest für Dich (PDF)-Texte und beantwortet deine Fragen zum 
 
 ## Grenzen
 Text, Fragen und Antworten müssen in die Token-Grenze passen - das setzt für GPT3.5 (max. 4096 Token) die Grenze bei 3-5 Seiten. (Und dann sind nur noch sehr kurze Fragen und Antworten möglich.) Kondensieren ermöglicht Texte mit bis zu 8-facher Länge. 
+
+## Beispiel-PDF zum Ausprobieren: 
+
+Dieser [35-Seiten-Report](https://reutersinstitute.politics.ox.ac.uk/sites/default/files/2022-09/RISJ%20paper_SimonE_TT22_Final.pdf) von Reuters passt kondensiert so gerade eben noch in GPT3.5 - man kann immerhin kurze Fragen stellen. GPT-4 mit seiner doppelt so hohen Token-Grenze antwortet problemlos, allerdings nicht ganz günstig. 
 
 ## Zukünftig Vektor-Datenbank?
 
