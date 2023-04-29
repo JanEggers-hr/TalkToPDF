@@ -3,6 +3,14 @@ GPT-3.5 bzw. GPT-4 liest für Dich (PDF)-Texte und beantwortet deine Fragen zum 
 
 ![TalkToPDF-Condense-Demo](./talktopdf-demo.png)
 
+## Was das soll und wie man's macht: 
+
+Mehr dazu [im Blog-Post auf janeggers.tech](https://www.janeggers.tech/eeblog/2023/kann-ich-die-ki-fuer-mich-den-stuckrad-barre-lesen-lassen/)
+
+## Tja, und...?
+
+Klar: das gibt es schon. Wenn man ohnehin ein OpenAI-API-Token hat, kann man zum Beispiel auch [pdfgpt.io](https://pdfgpt.io) nutzen - da kann man ohne weitere Anmeldung Dokumente bis zu 1000 Seiten befragen (mit einer etwas anderen Technik, dazu mehr unten unter "Grenzen"). Das hier ist kein produktionstaugliches Tool, sondern ein Experiment. 
+
 ## Was man braucht
 - Ein Google-Konto (um das Notebook in Colab auszuführen); ersatzweise eine lokale juPyter-Installation
 - Ein gültiges Token für die OpenAI-API
@@ -18,7 +26,15 @@ GPT-3.5 bzw. GPT-4 liest für Dich (PDF)-Texte und beantwortet deine Fragen zum 
 - Mit dem Modell über das PDF chatten. 
 
 ## Grenzen
-Text, Fragen und Antworten müssen in die Token-Grenze passen - das setzt für GPT3.5 (max. 4096 Token) die Grenze bei 3-5 Seiten. (Und dann sind nur noch sehr kurze Fragen und Antworten möglich.) Kondensieren ermöglicht Texte mit bis zu 8-facher Länge. 
+Text, Fragen und Antworten müssen in die Token-Grenze passen - das setzt für GPT3.5 (max. 4096 Token) die Grenze bei 3-5 Seiten. (Und dann sind nur noch sehr kurze Fragen und Antworten möglich.) Kondensieren ermöglicht Texte mit bis zu 8-facher Länge - aber so etwa bei 30-40 Seiten ist Schluss. 
+
+Tools, die mehr Seiten können, lösen das mit einem etwas anderen Verfahren: 
+- Erstelle für jeden Absatz ein "Embedding" - einen semantischen Fingerabdruck des Textabschnitts, einen Vektor für den Sinn des Textes gewissermaßen.
+- Wenn eine Frage gestellt wird, durchsuche eine Datenbank aller Embeddings und fische die raus, die am besten passen. 
+- Lade den Volltext der entsprechenden Absätze und - als Kontext - ein paar davor und ein paar danach in GPT-3.5, zusammen mit der Nutzer-Frage. 
+Irgendwann mal. 
+
+(Und dann sind da noch die PDFs, die keinen Text enthalten, sondern nur Grafik bzw. abfotografierten Text - anderes Thema. Auch ein andermal.) 
 
 ## Beispiel-PDF zum Ausprobieren: 
 
